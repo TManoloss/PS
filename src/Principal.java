@@ -4,23 +4,47 @@ import br.com.alura.ManuVideo.modelos.Episodio;
 import br.com.alura.ManuVideo.modelos.Filme;
 import br.com.alura.ManuVideo.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O poderoso Chefinho");
-        meuFilme.setAnoDeLancamento(2017);
-        meuFilme.setDuracao(97);
+        var filme1 = new Filme();
+        filme1.setNome("O poderoso Chefinho");
+        filme1.setAnoDeLancamento(2017);
+        filme1.setDuracao(97);
+
+        var filme2 = new Filme();
+        filme2.setNome("Enrolados");
+        filme2.setAnoDeLancamento(2011);
+        filme2.setDuracao(100);
+        filme2.avalia(10);
+
+        var filme3 = new Filme();
+        filme3.setNome("10 coisas que odeio em você");
+        filme3.setAnoDeLancamento(1999);
+        filme3.setDuracao(97);
+        filme3.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filme1);
+        listaDeFilmes.add(filme2);
+        listaDeFilmes.add(filme3);
+        System.out.println(listaDeFilmes.size());
+        System.out.println(listaDeFilmes.get(2).getNome());
+        System.out.println(listaDeFilmes);
+        System.out.println("toString do filme " + listaDeFilmes.get(0).toString());
 
 
+        filme1.exibeFichaTecnica();
+        filme1.avalia( 8);
+        filme1.avalia( 10);
+        filme1.avalia(9);
+        filme1.avalia(7);
+        System.out.println(filme1.getSomaDasAvaliacoes());
+        System.out.println(filme1.getTotalDeAvaliacoes());
+        System.out.println(filme1.pegaMedia());
 
-        meuFilme.exibeFichaTecnica();
-        meuFilme.avalia( 8);
-        meuFilme.avalia( 10);
-        meuFilme.avalia(9);
-        meuFilme.avalia(7);
-        System.out.println(meuFilme.getSomaDasAvaliacoes());
-        System.out.println(meuFilme.getTotalDeAvaliacoes());
-        System.out.println(meuFilme.pegaMedia());
+        filme2.exibeFichaTecnica();
 
         Serie lost = new Serie();
         lost.setNome("Lost");
@@ -32,11 +56,11 @@ public class Principal {
         System.out.println("Duração para maratonar Lost " + lost.getDuracao());
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
-        calculadora.inclui(meuFilme);
+        calculadora.inclui(filme1);
         System.out.println("tempo" + calculadora.getTempoTotal());
 
         FiltroRecomendacao filtro = new FiltroRecomendacao();
-        filtro.filtra(meuFilme);
+        filtro.filtra(filme1);
 
         Episodio episodio = new Episodio();
         episodio.setNumero(1);
