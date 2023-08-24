@@ -1,4 +1,6 @@
 import br.com.alura.ManuVideo.calculo.CalculadoraDeTempo;
+import br.com.alura.ManuVideo.calculo.FiltroRecomendacao;
+import br.com.alura.ManuVideo.modelos.Episodio;
 import br.com.alura.ManuVideo.modelos.Filme;
 import br.com.alura.ManuVideo.modelos.Serie;
 
@@ -10,7 +12,7 @@ public class Principal {
         meuFilme.setDuracao(97);
 
 
-        
+
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia( 8);
         meuFilme.avalia( 10);
@@ -32,5 +34,14 @@ public class Principal {
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(meuFilme);
         System.out.println("tempo" + calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(lost);
+        episodio.setTotaVisuaizacoes(-3);
+        filtro.filtra(episodio);
     }
 }

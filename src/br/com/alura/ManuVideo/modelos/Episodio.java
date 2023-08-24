@@ -1,9 +1,19 @@
 package br.com.alura.ManuVideo.modelos;
+import br.com.alura.ManuVideo.calculo.classificacao;
 
-public class Episodio {
+public class Episodio implements classificacao {
     private int numero;
     private String nome;
     private Serie serie;
+    private int totaVisuaizacoes;
+
+    public int getTotaVisuaizacoes() {
+        return totaVisuaizacoes;
+    }
+
+    public void setTotaVisuaizacoes(int totaVisuaizacoes) {
+        this.totaVisuaizacoes = totaVisuaizacoes;
+    }
 
     public int getNumero() {
 
@@ -28,5 +38,13 @@ public class Episodio {
 
     public void setSerie(Serie serie) {
         this.serie = serie;
+    }
+
+    @Override
+    public int getClassificao() {
+        if(totaVisuaizacoes > 100){
+            return 4;
+        }else{
+        return 2;}
     }
 }
