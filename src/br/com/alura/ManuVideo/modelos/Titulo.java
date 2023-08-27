@@ -1,12 +1,18 @@
 package br.com.alura.ManuVideo.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
     private String nome;
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private int duracao;
     private double somaDasAvaliacoes;
     private int totalDeAvaliacoes;
+    //CONSTRUTOR------------------------------------
+    public Titulo(String nome, int anoDeLancamento) {
+        this.nome = nome;
+        this.anoDeLancamento = anoDeLancamento;
+    }
+
     // GETTERS
     public String getNome() {
         return nome;
@@ -59,4 +65,8 @@ public class Titulo {
         return somaDasAvaliacoes/totalDeAvaliacoes;
     }
 
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
+    }
 }

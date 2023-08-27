@@ -4,6 +4,12 @@ import br.com.alura.ManuVideo.calculo.classificacao;
 
 public class Filme extends Titulo implements classificacao {
  private String diretor;
+    //CONSTRUTOR------------------------------
+    public Filme(String nome, int anoDeLancamento) {
+        super(nome, anoDeLancamento);
+    }
+
+
     //GETTERS
     public String getDiretor() {
         return diretor;
