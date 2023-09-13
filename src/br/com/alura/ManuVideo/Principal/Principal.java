@@ -14,7 +14,7 @@ public class Principal {
         var filme1 = new Filme("O poderoso Chefinho",2017);
         filme1.setDuracao(97);
 
-        var filme2 = new Filme("Enrolados", 2011);
+        var filme2 = new Filme( "Enrolados", 2011);
         filme2.setDuracao(100);
         filme2.avalia(10);
 
